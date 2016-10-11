@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.calendario{
+    background: #fff;
+    border: 5px solid #fff;
+}
+.container{
+    width: 210px;
+}
+.botoes{
+    width: 210px;
+    height: 30px;
+}
+.esq,.dir{
+    cursor: pointer;
+    margin: 3px 0;
+}
+.esq{
+    float: left;
+}
+.dir{
+    float: right;
+}
+.btn{
+    border: 1px solid #22A7F0;
+    background: rgba(0,0,0,.0);
+    color: #22A7F0;
+    padding: 3px;
+    cursor: pointer;
+}
+.dados{
+    display: none;
+}
+.tabela{
+    width: 210px;
+    height: 210px;
+}
+th{
+    color: #6C7A89;
+    height: 26px;
+}
+td{
+    height: 28px;
+    color: #22A7F0;
+}
+th,td{
+    width: 30px;
+    text-align: center;
+}
+.forasteiro{
+    color: #2ECC71;
+}
+.mes-ano{
+    width: 210px;
+}
+.mes-ano p{
+    width: 122px;
+    height: 30px;
+    color: #22A7F0;
+    margin: auto 0;
+    text-align: center;
+    position: relative;
+    left: 44px;
+    bottom: 240px;
+    margin: 7px 0;
+}
+th,td,.mes-ano p,.btn{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+}
