@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link rel="stylesheet" href="css/estilo.css" />
+        <script src='js/calendario.js'></script>
+    </head>
+    <body onload="leData()">
+        <div id="calendario" class="calendario">
+            <div class="container">
+                <div class="botoes">
+                    <div class="esq">
+                        <button class="btn" onclick="avancoRetrocesso(this.value)" value="0">&lt;</button>
+                        <button class="btn" onclick="avancoRetrocessoRapido(this.value)" value="0">&lt;&lt;</button>
+                    </div>
+                    <div class="dir">
+                        <button class="btn" onclick="avancoRetrocessoRapido(this.value)" value="1">&gt;&gt;</button>
+                        <button class="btn" onclick="avancoRetrocesso(this.value)" value="1">&gt;</button>
+                    </div>
+                </div>
+                <div class="dados">
+                    <p class="ano"></p>
+                    <p class="mes"></p>
+                </div>
+                <div class="tabela">
+                    <table class="cale">
+                        <thead>
+                            <tr>
+                                <th>D</th>
+                                <th>S</th>
+                                <th>T</th>
+                                <th>Q</th>
+                                <th>Q</th>
+                                <th>S</th>
+                                <th>S</th>
+                            </tr>
+                        </thead>
+                        <tbody class='dias'>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="mes-ano">
+                <p></p>
+            </div>
+        </div>
+    </body>
+</html>
