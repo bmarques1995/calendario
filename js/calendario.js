@@ -12,8 +12,7 @@ function avancoRetrocesso(controle) {
     var mes = parseInt(document.querySelector('.mes').innerHTML);
     if (controle == '0') {
         if (--mes == -1) {
-            ano--;
-            mes = 11;
+            ano--;            mes = 11;
         }
     } else {
         if (++mes == 12) {
@@ -23,8 +22,7 @@ function avancoRetrocesso(controle) {
     }
     document.querySelector('.ano').innerHTML = ano;
     document.querySelector('.mes').innerHTML = mes;
-    constroiCalendario();
-}
+    constroiCalendario();}
 
 function avancoRetrocessoRapido(controle) {
     var ano = parseInt(document.querySelector('.ano').innerHTML);
@@ -47,7 +45,7 @@ function leData() {
 function constroiCalendario() {
     var data = new Date(parseInt(document.querySelector('.ano').innerHTML),parseInt(document.querySelector('.mes').innerHTML),1,8,0,0);
     var mes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    document.querySelector('.mes-ano p').innerHTML = mes[data.getMonth()] + ' ' + data.getFullYear();
+    document.querySelector('.mes-ano').innerHTML = mes[data.getMonth()] + ' ' + data.getFullYear();
     destroiTabela();
     constroiTabela(data);
     /*Funcionando Corretamente*/
