@@ -44,15 +44,8 @@ function leData() {
     constroiCalendario();
 }
 
-function trataString() {
-    var mes = parseInt(document.querySelector('.mes').innerHTML) + 1;
-    if (mes < 10)
-        mes = '0' + mes;
-    return mes + '-01-' + document.querySelector('.ano').innerHTML + ' 08:00';
-}
-
 function constroiCalendario() {
-    var data = new Date(trataString());
+    var data = new Date(parseInt(document.querySelector('.ano').innerHTML),parseInt(document.querySelector('.mes').innerHTML),1,8,0,0);
     var mes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     document.querySelector('.mes-ano p').innerHTML = mes[data.getMonth()] + ' ' + data.getFullYear();
     destroiTabela();
