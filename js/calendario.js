@@ -6,27 +6,43 @@ function verificaBissexto(ano) {
     else
         return true;
 }
-function funcoesIniciais(){
+
+function funcoesIniciais() {
     leData();
     funcoesRepetitivas();
 }
-function funcoesRepetitivas(){
+
+function funcoesRepetitivas() {
     ajustaTamanhoCalendario();
-    setTimeout(funcoesRepetitivas,500);
+    setTimeout(funcoesRepetitivas, 500);
 }
-function ajustaTamanhoCalendario(){
+
+function ajustaTamanhoCalendario() {
     var tam = window.innerWidth;
-    var vet = [document.querySelector('.calendario'),document.querySelector('.tab-nav'),document.querySelector('.cale')];
-    if(tam<=560){
-        for(var i=0;i<3;++i)
-            vet[i].style.width = (tam-60)+'px';
-    }
-    else{
-        for(var i=0;i<3;++i)
+    var vet = [document.querySelector('.calendario'), document.querySelector('.tab-nav'), document.querySelector('.cale')];
+    if (tam <= 560) {
+        if (tam >= 320) {
+            for (var i = 0; i < 3; ++i) {
+                vet[i].style.width = (tam - 60) + 'px';
+            }
+            var letra = document.querySelector('.mes-ano');
+            var botao = document.querySelectorAll('.btn');
+            letra.style.fontSize = '18px';
+            for (var i = 0; i < botao.length; ++i)
+                botao[i].style.fontSize = '18px';
+        }
+    } else {
+        for (var i = 0; i < 3; ++i)
             vet[i].style.width = '500px';
+        var letra = document.querySelector('.mes-ano');
+        var botao = document.querySelectorAll('.btn');
+        letra.style.fontSize = '20px';
+        for (var i = 0; i < botao.length; ++i)
+            botao[i].style.fontSize = '20px';
     }
-        
+
 }
+
 function avancoRetrocesso(controle) {
     var ano = parseInt(document.querySelector('.ano').innerHTML);
     var mes = parseInt(document.querySelector('.mes').innerHTML);
@@ -65,22 +81,24 @@ function leData() {
 }
 
 function constroiCalendario() {
-    var data = new Date(parseInt(document.querySelector('.ano').innerHTML),parseInt(document.querySelector('.mes').innerHTML),1,8,0,0);
+    var data = new Date(parseInt(document.querySelector('.ano').innerHTML), parseInt(document.querySelector('.mes').innerHTML), 1, 8, 0, 0);
     var mes = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
     document.querySelector('.mes-ano').innerHTML = mes[data.getMonth()] + ' ' + data.getFullYear();
     destroiTabela();
     constroiTabela(data);
     /*Funcionando Corretamente*/
 }
+
 function destroiTabela() {
-   var corpo = document.createElement('tbody');
-   corpo.setAttribute('class','dias');
-   document.querySelector('.cale').removeChild(document.querySelector('.dias'));
-   document.querySelector('.cale').appendChild(corpo);
+    var corpo = document.createElement('tbody');
+    corpo.setAttribute('class', 'dias');
+    document.querySelector('.cale').removeChild(document.querySelector('.dias'));
+    document.querySelector('.cale').appendChild(corpo);
 }
+
 function constroiTabela(data) {
     var tab = document.querySelector('.dias'),
-    fim = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        fim = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if (verificaBissexto(data.getFullYear()))
         fim[1] = 29;
     var num_linhas = fim[data.getMonth()] + data.getDay();
@@ -104,6 +122,7 @@ function criaLinhas(tam) {
             col[i].appendChild(document.createElement('td'));
     }
 }
+
 function constroiColunas(data, fim, fim_anterior) {
     var dias = document.querySelectorAll('.dias tr td');
     var ini = data.getDay();
@@ -111,20 +130,21 @@ function constroiColunas(data, fim, fim_anterior) {
         dias[i].innerHTML = fim_anterior - ini + 1 + i;
         dias[i].setAttribute("class", "forasteiro");
     }
-    
-    for (var i = ini; i < ini + fim; ++i){
+
+    for (var i = ini; i < ini + fim; ++i) {
         dias[i].innerHTML = i - ini + 1;
-        dias[i].setAttribute('class','pertencente');
-        dias[i].setAttribute('onclick','clicaDia('+(i-ini)+')');
+        dias[i].setAttribute('class', 'pertencente');
+        dias[i].setAttribute('onclick', 'clicaDia(' + (i - ini) + ')');
     }
-    dias[ini].setAttribute("class","pertencente ativo");
+    dias[ini].setAttribute("class", "pertencente ativo");
     console.log(dias[ini]);
     for (var i = ini + fim; i < dias.length; ++i) {
         dias[i].innerHTML = i - ini - fim + 1;
         dias[i].setAttribute("class", "forasteiro");
     }
 }
-function clicaDia(seletor){
+
+function clicaDia(seletor) {
     document.querySelector('.ativo').classList.remove('ativo');
     var x = document.querySelectorAll('.pertencente');
     x[seletor].classList.add('ativo');
