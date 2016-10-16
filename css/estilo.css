@@ -1,74 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 *{
     margin: 0;
     padding: 0;
-    text-decoration: none;
-}
-.calendario{
-    background: #fff;
-    border: 5px solid #fff;
-}
-.container{
-    width: 210px;
-}
-.botoes{
-    width: 210px;
-    height: 30px;
-}
-.esq,.dir{
-    cursor: pointer;
-    margin: 3px 0;
-}
-.esq{
-    float: left;
-}
-.dir{
-    float: right;
-}
-.btn{
-    border: 1px solid #22A7F0;
-    background: rgba(0,0,0,.0);
-    color: #22A7F0;
-    padding: 3px;
-    cursor: pointer;
 }
 .dados{
     display: none;
 }
-.tabela{
-    width: 210px;
-    height: 210px;
+.btn{
+    border: 0;
+    padding: 3px;
+    background: rgba(0,0,0,0);
 }
-th{
-    color: #6C7A89;
-    height: 26px;
+.dir{
+    padding-right: 4px;
 }
-td{
-    height: 28px;
-    color: #22A7F0;
+.esq{
+    padding-left: 4px;
 }
-th,td{
-    width: 30px;
-    text-align: center;
+.calendario{
+    margin: auto;
+    width: 500px;
+    padding: 15px;
 }
-.forasteiro{
-    color: #2ECC71;
+.btn:active,.btn:focus{
+    outline: none;
 }
 .mes-ano{
-    width: 210px;
-}
-.mes-ano p{
-    width: 122px;
-    height: 30px;
-    color: #22A7F0;
-    margin: auto 0;
     text-align: center;
-    position: relative;
-    left: 44px;
-    bottom: 240px;
-    margin: 7px 0;
+    flex-grow: 1;
 }
-th,td,.mes-ano p,.btn{
+.cale,.tab-nav{
+    width: 500px;
+}
+.cale{
+    border-collapse: collapse;
+}
+.tab-nav{
+    display: flex;  
+}
+.tab-nav{
+    background: #157dfb;
+}
+.tab-nav,th,td{
+    height: 45px;
+}
+th{
+    color: #157dfb;
+}
+td{
+    border: 1px solid #ccc;
+}
+th,td{
+    width: 14,28%;
+    text-align: center;
+}
+.dir,.mes-ano,.esq{
+    margin: auto;
+}
+.btn,.mes-ano{
+    font-size: 20px;
+    color: #fff;
+}
+.ativo{
+    background: #157dfb !important;
+    color: #fff !important;
+}
+.pertencente{
+    cursor: pointer;
+}
+th,.pertencente,.calendario{
+    background: #F2F1EF;
+}
+.forasteiro{
+    background: #fff;
+}
+.btn,.mes-ano,th,td{
     font-family: 'Open Sans', sans-serif;
-    font-weight: 100;
-    font-size: 14px;
 }
