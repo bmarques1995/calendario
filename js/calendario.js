@@ -12,7 +12,8 @@ function avancoRetrocesso(controle) {
     var mes = parseInt(document.querySelector('.mes').innerHTML);
     if (controle == '0') {
         if (--mes == -1) {
-            ano--;            mes = 11;
+            ano--;
+            mes = 11;
         }
     } else {
         if (++mes == 12) {
@@ -22,7 +23,8 @@ function avancoRetrocesso(controle) {
     }
     document.querySelector('.ano').innerHTML = ano;
     document.querySelector('.mes').innerHTML = mes;
-    constroiCalendario();}
+    constroiCalendario();
+}
 
 function avancoRetrocessoRapido(controle) {
     var ano = parseInt(document.querySelector('.ano').innerHTML);
@@ -82,7 +84,6 @@ function criaLinhas(tam) {
             col[i].appendChild(document.createElement('td'));
     }
 }
-
 function constroiColunas(data, fim, fim_anterior) {
     var dias = document.querySelectorAll('.dias tr td');
     var ini = data.getDay();
@@ -90,12 +91,21 @@ function constroiColunas(data, fim, fim_anterior) {
         dias[i].innerHTML = fim_anterior - ini + 1 + i;
         dias[i].setAttribute("class", "forasteiro");
     }
+    
     for (var i = ini; i < ini + fim; ++i){
         dias[i].innerHTML = i - ini + 1;
         dias[i].setAttribute('class','pertencente');
+        dias[i].setAttribute('onclick','clicaDia('+(i-ini)+')');
     }
+    dias[ini].setAttribute("class","pertencente ativo");
+    console.log(dias[ini]);
     for (var i = ini + fim; i < dias.length; ++i) {
         dias[i].innerHTML = i - ini - fim + 1;
         dias[i].setAttribute("class", "forasteiro");
     }
+}
+function clicaDia(seletor){
+    document.querySelector('.ativo').classList.remove('ativo');
+    var x = document.querySelectorAll('.pertencente');
+    x[seletor].classList.add('ativo');
 }
