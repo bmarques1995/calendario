@@ -19,7 +19,6 @@
 }
 .calendario{
     margin: auto;
-    width: 500px;
     padding: 15px;
 }
 .btn:active,.btn:focus{
@@ -28,9 +27,6 @@
 .mes-ano{
     text-align: center;
     flex-grow: 1;
-}
-.cale,.tab-nav{
-    width: 500px;
 }
 .cale{
     border-collapse: collapse;
