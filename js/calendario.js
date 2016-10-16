@@ -6,7 +6,27 @@ function verificaBissexto(ano) {
     else
         return true;
 }
-
+function funcoesIniciais(){
+    leData();
+    funcoesRepetitivas();
+}
+function funcoesRepetitivas(){
+    ajustaTamanhoCalendario();
+    setTimeout(funcoesRepetitivas,500);
+}
+function ajustaTamanhoCalendario(){
+    var tam = window.innerWidth;
+    var vet = [document.querySelector('.calendario'),document.querySelector('.tab-nav'),document.querySelector('.cale')];
+    if(tam<=540){
+        for(var i=0;i<3;++i)
+            vet[i].style.width = (tam-40)+'px';
+    }
+    else{
+        for(var i=0;i<3;++i)
+            vet[i].style.width = '500px';
+    }
+        
+}
 function avancoRetrocesso(controle) {
     var ano = parseInt(document.querySelector('.ano').innerHTML);
     var mes = parseInt(document.querySelector('.mes').innerHTML);
