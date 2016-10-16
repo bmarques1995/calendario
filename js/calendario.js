@@ -17,9 +17,9 @@ function funcoesRepetitivas(){
 function ajustaTamanhoCalendario(){
     var tam = window.innerWidth;
     var vet = [document.querySelector('.calendario'),document.querySelector('.tab-nav'),document.querySelector('.cale')];
-    if(tam<=540){
+    if(tam<=560){
         for(var i=0;i<3;++i)
-            vet[i].style.width = (tam-40)+'px';
+            vet[i].style.width = (tam-60)+'px';
     }
     else{
         for(var i=0;i<3;++i)
